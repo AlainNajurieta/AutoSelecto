@@ -1,4 +1,6 @@
-
+<?php
+    include "cabecera.php";
+?>
     <div class="distribucion">
         <div class="cuerpo">
             <img src="../imagenes/mantenimiento_coche.jpg" alt="">

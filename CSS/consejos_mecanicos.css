@@ -1,0 +1,108 @@
+body {
+    background-color: rgb(240, 240, 240);
+}
+
+.cuerpo img {
+    width: 100%;
+    margin-top: 10px;
+}
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td,
+th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+
+.distribucion {
+    width: 95%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 70% auto;
+
+}
+
+.cuerpo {
+    margin-right: 25px;
+
+    border-style: outset;
+    border-color: rgb(209, 209, 209);
+    padding-inline: 10px;
+
+
+}
+
+p {
+    font-size: large;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+.vertical {
+    border-style: outset;
+    border-color: rgb(168, 167, 167);
+    height: 2215px;
+    width: 400px;
+    background-color: rgb(206, 206, 206);
+}
+
+.borde {
+    border-style: groove;
+    border-color: rgb(168, 167, 167);
+    width: 370px;
+    height: 475px;
+    margin: auto;
+    margin-bottom: 90px;
+    margin-top: 10px;
+    background-color: rgb(240, 240, 240);
+}
+
+.borde div {
+    width: 345px;
+    height: 450px;
+    margin: auto;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+
+
+.vertical1 {
+    background-image: url(../imagenes/vertical1.jpg);
+    background-size: cover;
+}
+
+.vertical2 {
+    background-image: url(../imagenes/vertical2.avif);
+    background-size: cover;
+}
+
+.mapfre {
+    background-image: url(../imagenes/mapfre.png);
+    background-size: cover;
+}
+
+.seguro {
+    background-image: url(../imagenes/seguro_vida.webp);
+    background-size: cover;
+}
