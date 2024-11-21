@@ -1,0 +1,35 @@
+
+.pie_pagina {
+    grid-column: 1 / 5;
+    grid-row: 6;
+    background-color: black;
+    color: white;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+}
+
+
+.pie_enlaces_interes {
+    margin: 0;
+    text-align: center;
+    display: inline-block;
+    height: 100%;
+}
+
+.texto_pie {
+    width: 70%;
+    margin-inline: auto;
+}
+
+.pie_enlaces_interes {
+    width: 20%;
+    padding-left: 10px;
+    border-left: #efefef 2px solid;
+}
+.pie_enlaces_interes img{
+    height: 100px;
+    width: 100px;
+}
