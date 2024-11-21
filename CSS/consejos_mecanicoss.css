@@ -1,5 +1,5 @@
 body {
-    background-color: rgb(240, 240, 240);
+    background-color: rgb(106, 235, 81);
 }
 
 .cuerpo img {
@@ -36,7 +36,7 @@ tr:nth-child(even) {
     margin-right: 25px;
 
     border-style: outset;
-    border-color: rgb(209, 209, 209);
+    border-color: rgb(128, 160, 197);
     padding-inline: 10px;
 
 
@@ -63,7 +63,7 @@ p {
     border-color: rgb(168, 167, 167);
     height: 2215px;
     width: 400px;
-    background-color: rgb(206, 206, 206);
+    background-color: rgb(146, 196, 219);
 }
 
 .borde {
@@ -74,7 +74,7 @@ p {
     margin: auto;
     margin-bottom: 90px;
     margin-top: 10px;
-    background-color: rgb(240, 240, 240);
+    background-color: rgb(138, 177, 248);
 }
 
 .borde div {

@@ -8,7 +8,7 @@
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' type='text/css' media='screen' href='../css/cabecera.css'>
     <link rel='stylesheet' type='text/css' media='screen' href='../css/pie_de_pagina.css'>
-    <link rel='stylesheet' type='text/css' media='screen' href='../css/consejos_mecanicos.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='../css/consejos_mecanicoss.css'>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="shortcut icon" href="../imagenes/logo-search-grid-1x.png" type="image/x-icon">
     <script src='main.js'></script>
