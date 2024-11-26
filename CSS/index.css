@@ -1,0 +1,87 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.5;
+}
+
+.cabecera {
+    background-color: #2c3e50;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+}
+
+.seccion1 .foto {
+    background-color: #dcdcdc;
+    text-align: center;
+    padding: 60px;
+    font-size: 18px;
+    font-weight: bold;
+    border: 1px solid #ccc;
+    margin: 20px auto;
+    max-width: 80%;
+}
+
+.seccion2 {
+    display: flex;
+    justify-content: space-around;
+    margin: 20px 0;
+}
+
+.seccion2 .item a {
+    display: block;
+    background-color: #3498db;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+    padding: 15px 20px;
+    border-radius: 5px;
+    width: 120px;
+}
+
+.seccion2 .item a:hover {
+    background-color: #2980b9;
+}
+
+.seccion3 {
+    display: flex;
+    justify-content: space-around;
+    margin: 20px 0;
+    padding: 0 10%;
+}
+
+.seccion3 .imagen-texto {
+    text-align: center;
+}
+
+.seccion3 .imagen-texto a {
+    display: block;
+    background-color: #e74c3c;
+    color: #fff;
+    text-decoration: none;
+    padding: 40px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+.seccion3 .imagen-texto a:hover {
+    background-color: #c0392b;
+}
+
+.seccion3 .imagen-texto p {
+    font-size: 16px;
+    color: #333;
+}
+
+.pie {
+    background-color: #2c3e50;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    margin-top: 20px;
+}
