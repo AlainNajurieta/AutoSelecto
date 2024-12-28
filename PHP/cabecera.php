@@ -6,7 +6,7 @@
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>AutoSelecto</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href='../css/cabecera1.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='../css/cabecera.css'>
     <link rel='stylesheet' type='text/css' media='screen' href='../css/pie_de_pagina.css'>
     <link rel='stylesheet' type='text/css' media='screen' href='../css/consejos_mecanicoss.css'>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
@@ -18,7 +18,7 @@
     <div class="cabecera">
         <div class="menu">
             <div class="menu_buttons">
-                <a href="index.html">Indice</a>
+                <a href="../index.php">Indice</a>
                 <a href="contenido_general.html">Contenidos generales</a>
                 <div class="dropdown">
                     <a>Ofertas destacadas<i class="material-icons">expand_more</i></a>

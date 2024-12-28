@@ -13,6 +13,8 @@ body {
     opacity: 95%;
     grid-row: 1;
     grid-column: 1 / 5;
+    position: relative;
+    z-index: 1000;
 }
 
 .menu {
