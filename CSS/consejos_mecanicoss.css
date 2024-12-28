@@ -1,5 +1,6 @@
 body {
-    background-color: rgb(240, 240, 240);
+    background-color: rgb(24, 24, 24);
+    color: rgb(200, 200, 200);
 }
 
 .cuerpo img {
@@ -8,20 +9,22 @@ body {
 }
 
 table {
-    font-family: arial, sans-serif;
+    font-family: Arial, sans-serif;
     border-collapse: collapse;
     width: 100%;
+    background-color: rgb(36, 36, 36);
+    color: rgb(220, 220, 220);
 }
 
 td,
 th {
-    border: 1px solid #dddddd;
+    border: 1px solid rgb(80, 80, 80);
     text-align: left;
     padding: 8px;
 }
 
 tr:nth-child(even) {
-    background-color: #dddddd;
+    background-color: rgb(48, 48, 48);
 }
 
 .distribucion {
@@ -29,52 +32,38 @@ tr:nth-child(even) {
     margin: auto;
     display: grid;
     grid-template-columns: 70% auto;
-
 }
 
 .cuerpo {
     margin-right: 25px;
-
     border-style: outset;
-    border-color: rgb(209, 209, 209);
+    border-color: rgb(90, 90, 90);
     padding-inline: 10px;
-
-
+    background-color: rgb(36, 36, 36);
 }
 
 p {
     font-size: large;
+    color: rgb(200, 200, 200);
 }
-
-
-
-
-
-
-
-
-
-
-
-
 
 .vertical {
     border-style: outset;
-    border-color: rgb(168, 167, 167);
+    border-color: rgb(90, 90, 90);
     height: 2215px;
     width: 400px;
-    background-color: rgb(206, 206, 206);
+    background-color: rgb(50, 50, 50);
 }
 
 .borde {
     border-style: groove;
-    border-color: rgb(168, 167, 167);
+    border-color: rgb(120, 120, 120);
     width: 370px;
     height: 475px;
     margin: auto;
     margin-bottom: 90px;
     margin-top: 10px;
-    background-color: rgb(240, 240, 240);
+    background-color: rgb(64, 64, 64);
 }
 
 .borde div {
@@ -85,20 +74,18 @@ p {
     margin-top: 10px;
 }
 
-
-
 .vertical1 {
-    background-image: url(../imagenes/vertical1.jpg);
+    background-image: url(../imagenes/coca.jpg);
     background-size: cover;
 }
 
 .vertical2 {
-    background-image: url(../imagenes/vertical2.avif);
+    background-image: url(../imagenes/pepsi.jpg);
     background-size: cover;
 }
 
 .mapfre {
-    background-image: url(../imagenes/mapfre.png);
+    background-image: url(../imagenes/Mapfre.jpg);
     background-size: cover;
 }
 

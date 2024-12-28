@@ -1,13 +1,18 @@
+body {
+    background-color: rgb(24, 24, 24);
+    color: rgb(200, 200, 200);
+}
+
 .cabecera {
     font-family: Arial, sans-serif;
-    background: linear-gradient(to bottom, black, rgb(255, 255, 255));
+    background: linear-gradient(to bottom, rgb(24, 24, 24), rgb(80, 80, 80));
     font-size: 20px;
     width: 100%;
     margin-top: 0;
     padding-bottom: 1.1%;
     opacity: 95%;
     grid-row: 1;
-    grid-column: 1 / 5s;
+    grid-column: 1 / 5;
 }
 
 .menu {
@@ -15,15 +20,13 @@
     margin: 0;
     position: sticky;
     top: 0;
-    border-bottom: white;
-    border-bottom: solid white;
+    border-bottom: 1px solid rgb(200, 200, 200);
 }
 
 .logo {
     display: inline-block;
     height: 75px;
     position: absolute;
-    bottom: 5px;
     left: 90%;
     bottom: -25%;
 }
@@ -40,17 +43,15 @@
 .cabecera a {
     cursor: pointer;
     text-decoration: none;
-    color: white;
+    color: rgb(200, 200, 200);
 }
 
 .cabecera a:hover {
-    background-color:white;
-    color:#00b7ff;
-    /* background-color: #00b7ff */
-}
-.cabecera a:hover {
+    background-color: rgb(200, 200, 200);
+    color: rgb(0, 0, 0);
     opacity: 85%;
 }
+
 .cabecera a {
     padding-inline: 30px;
     padding-block: 20px;
@@ -64,8 +65,8 @@
 .dropdown_content {
     display: none;
     position: absolute;
-    z-index: 1;
-    background-color: #828282c8;
+    z-index: 2;
+    background-color: rgba(130, 130, 130, 0.78);
 }
 
 .dropdown:hover .dropdown_content {
@@ -74,6 +75,8 @@
 
 .dropdown_content a {
     display: block;
+    color: rgb(200, 200, 200);
+    text-decoration: none;
 }
 
 .cabecera i {
@@ -83,33 +86,11 @@
     position: relative;
     top: 5px;
 }
-.dropdown {
-    display: inline-block;
-}
-
-.dropdown_content {
-    display: none;
-    position: absolute;
-    z-index: 2; /* Asegúrate de que el z-index sea mayor que el de las imágenes */
-    background-color: #828282c8;
-}
-
-.dropdown:hover .dropdown_content {
-    display: block;
-}
-
-.dropdown_content a {
-    display: block;
-}
-
-
-
-
 
 @media screen and (max-width: 1023px) {
     .mobile_menu {
         display: block;
-        color: white;
+        color: rgb(255, 255, 255);
     }
 
     .mobile_menu .material-icons {
