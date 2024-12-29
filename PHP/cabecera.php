@@ -10,6 +10,7 @@
     <link rel='stylesheet' type='text/css' media='screen' href='../css/pie_de_pagina.css'>
     <link rel='stylesheet' type='text/css' media='screen' href='../css/consejos_mecanicoss.css'>
     <link rel="stylesheet" type='text/css' media='screen' href="../CSS/inicioSesion.css">
+    <link rel="stylesheet" type='text/css' media='screen' href="../CSS/registro.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="shortcut icon" href="../imagenes/logo-search-grid-1x.png" type="image/x-icon">
     <script src='main.js'></script>
