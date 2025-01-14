@@ -1,6 +1,12 @@
-<?php
-    include "cabecera.php";
-?>
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>AutoSelecto</title>
+    <link rel="stylesheet" type='text/css' media='screen' href="../CSS/logins.css">
+</head>
 
     <div class="container">
         <form action="#">
@@ -15,7 +21,7 @@
                 <input type="email" placeholder="Correo electrónico" required>
             </div>
             <div class="form">
-                <a href="inicioSesion.php">
+                <a href="../inicioSesion.php">
                     <button type="button">Iniciar sesión</button>
                 </a>
             </div>
@@ -25,6 +31,4 @@
         </form>
     </div>
 
-<?php
-    include "pie.php";
-?>
+

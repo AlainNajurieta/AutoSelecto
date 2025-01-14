@@ -1,6 +1,10 @@
-<?php
-    include "cabecera.php";
-?>
+    <?php 
+        include "cabecera.php";
+    ?>
+    <link rel='stylesheet' type='text/css' media='screen' href='../css/consejos_mecanicoss.css'>
+    <?php 
+        include "navegador.php";
+    ?>
     <div class="distribucion">
         <div class="cuerpo">
             <img src="../imagenes/mantenimiento_coche.jpg" alt="">
@@ -209,6 +213,3 @@
 
         </div>
     </div>
-<?php
-    include "pie.php";
-?>

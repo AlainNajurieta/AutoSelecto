@@ -6,8 +6,13 @@
 
 body {
     font-family: Arial, sans-serif;
-    background-color: rgb(24, 24, 24);
+    background-color: rgb(230, 230, 230);
     color: rgb(200, 200, 200);
+    display: flex;
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center;    /* Centra verticalmente */
+    height: 100vh;          /* Usa toda la altura del viewport */
+    margin: 0;
 }
 
 .container {
