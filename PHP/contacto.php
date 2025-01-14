@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8" />
         <title>AutoSelecto</title>
-        <link rel="stylesheet" type="text/css" media="screen" href="../CSS/contacto.css" />
+        <link rel="stylesheet" type="text/css" media="screen" href="../CSS/contactos.css" />
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
     </head>
     <body>
@@ -13,6 +13,19 @@
                 <form action="contacto.html" method="get">
                     <h1>Contáctanos</h1>
                     <div class="campo">
+                        <label>Tratamiento</label>
+                        <div class="tratamiento">
+                            <div class="radio-item">
+                                <input type="radio" id="sr" name="tratamiento" value="sr">
+                                <label for="sr">Sr</label>
+                            </div>
+                            <div class="radio-item">
+                                <input type="radio" id="sra" name="tratamiento" value="sra">
+                                <label for="sra">Sra</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="campo">
                         <label for="nombre">Nombre <span>*</span></label>
                         <input type="text" id="nombre" name="nombre" required />
                     </div>
@@ -21,9 +34,14 @@
                         <input type="text" id="apellido" name="apellido" />
                     </div>
                     <div class="campo">
-                        <label for="email">Email <span>*</span></label>
-                        <input type="email" id="email" name="email" required />
+                        <label for="fecha">Fecha de nacimiento</label>
+                        <input type="date" id="fecha" name="fecha">
                     </div>
+                    <div class="campo">
+                        <label for="telefono">Teléfono <span>*</span></label>
+                        <input type="tel" id="telefono" name="telefono" pattern="[0-9]{9}" required />
+                    </div>
+
                     <div class="campo">
                         <label for="mensaje">Mensaje <span>*</span></label>
                         <textarea id="mensaje" name="mensaje" required></textarea>
