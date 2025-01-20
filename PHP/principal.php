@@ -23,7 +23,7 @@
                 <p>Últimas noticias</p></a>
             </div>
             <div class="item">
-                <a href="PHP/consejos_mecanicos.php"><img src="../imagenes/seguro_vida.jpg" alt="imagen consejos mecánicos">
+                <a href="consejos_mecanicos.php"><img src="../imagenes/seguro_vida.jpg" alt="imagen consejos mecánicos">
                 <p>Consejos mecánicos</p></a>
             </div>
         </div>
@@ -31,7 +31,7 @@
         <div class="seccion3">
         <a href="">
             <div class="imagen-texto">
-                header_register_callback
+                
                 <img src="../imagenes/ofertas_coches_septiembre.jpg" alt="imagen ofertas">
                 <p>Ofertas destacadas</p>
             </div>

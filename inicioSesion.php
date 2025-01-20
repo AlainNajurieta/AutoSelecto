@@ -12,7 +12,7 @@
     
 
     <div class="container">
-        <form action="PHP/controlador.php" method="post">
+        <form action="PHP/index.php" method="post">
             <h2>Iniciar sesión</h2>
             <div class="form">
                 <input type="text" placeholder="Usuario" required>
