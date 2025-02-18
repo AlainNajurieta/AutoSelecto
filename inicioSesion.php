@@ -9,21 +9,18 @@
 </head>
 
 <body>
-    
 
     <div class="container">
-        <form action="PHP/index.php" method="post">
+        <form action="index.php" method="post">
             <h2>Iniciar sesión</h2>
             <div class="form">
-                <input type="text" placeholder="Usuario" required>
+                <input type="text" placeholder="Usuario" name="usuario" >
             </div>
             <div class="form">
-                <input type="password" placeholder="Contraseña" required>
+                <input type="password" placeholder="Contraseña" name="contrasena" > <!-- Nombre corregido -->
             </div>
             <div class="form">
-                <a href="PHP/registro.php">
-                    <button type="button">Registrarse</button>
-                </a>
+                <button type="button" onclick="location.href='PHP/registro.php'">Registrarse</button>
             </div>
             <div class="form">
                 <button type="submit" name="enviar">Siguiente</button>
