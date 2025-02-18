@@ -5,29 +5,95 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
 <?php 
     include "navegador.php";
+
+    function sanearDato($dato) {
+        return trim(htmlspecialchars($dato));
+    }
+
+    function telefono($telefono){
+        $telefonoLimpio = str_replace([' ', '-', '(', ')'], '', $telefono);
+        if (strlen($telefonoLimpio) === 9 && is_numeric($telefonoLimpio)){
+            exit;
+        }else{
+            return "El número de teléfono no es válido";
+        }
+    }
+
+    function validar($dato, $tipo) {
+        $dato = sanearDato($dato);
+        if ($tipo === "texto") {
+            if (empty($dato)) return "Este campo es obligatorio.";
+        } elseif ($tipo === "fecha") {
+            if (empty($dato)) return "Este campo es obligatorio.";
+            if (!is_numeric($dato) || $dato < 3 || $dato > 120) return "La edad no es válida.";
+        } elseif ($tipo === "passwd") {
+            if (empty($dato)) return "Este campo es obligatorio.";
+        } elseif ($tipo === "seleccion") {
+            if (empty($dato)) return "Debe seleccionar al menos uno.";
+        } else {
+            exit();
+        }
+    }
+
+
+    // validar formulario
+    if(isset(($_POST["contacto"]))) {
+        $errores = [];
+        if(!empty($_POST['tratamiento'])){
+            $tratamiento=$_POST['tratamiento'];
+        }
+        $nombre=$_POST["nombre"];
+        $apellido = $_POST["apellido"];
+        $fechaNacimiento=$_POST['fecha'];
+        $telefono = $_POST["telefono"];
+        $mensaje = $_POST["mensaje"];
+        
+        sanearDato($apellido);
+
+        $errores['nombre']=validar($nombre,"texto");
+        $errores['mensaje']=validar($mensaje,"texto");
+        $errores['telefono']=telefono($telefono);
+
+        if(empty(array_filter($errores))){
+            $sql="insert into preguntas (mensaje) values ('$mensaje')";
+            $resul = mysqli_query($conexion, $sql);
+            if (!$resul) {
+                $error = "Error en consulta - ".mysqli_error($conexion);
+                exit();
+            }else{
+                $_GET['page']='contacto.php';
+            }
+        }else{
+            $_GET['page']= "contacto.php";
+        }
+    }
+
 ?>
+
+
+
     <body>
         <div class="header"></div>
         <div class="cuerpo">
             <div class="formulario">
-                <form action="contacto.html" method="get">
+                <form action="contacto.php" method="post">
                     <h1>Contáctanos</h1>
                     <div class="campo">
                         <label>Tratamiento</label>
                         <div class="tratamiento">
                             <div class="radio-item">
-                                <input type="radio" id="sr" name="tratamiento" value="sr">
+                                <input type="radio" id="sr" name="tratamiento" value="señor">
                                 <label for="sr">Sr</label>
                             </div>
                             <div class="radio-item">
-                                <input type="radio" id="sra" name="tratamiento" value="sra">
+                                <input type="radio" id="sra" name="tratamiento" value="señora">
                                 <label for="sra">Sra</label>
                             </div>
                         </div>
                     </div>
                     <div class="campo">
                         <label for="nombre">Nombre <span>*</span></label>
-                        <input type="text" id="nombre" name="nombre" required />
+                        <input type="text" id="nombre" name="nombre"  />
                     </div>
                     <div class="campo">
                         <label for="apellido">Apellido</label>
@@ -39,14 +105,14 @@
                     </div>
                     <div class="campo">
                         <label for="telefono">Teléfono <span>*</span></label>
-                        <input type="tel" id="telefono" name="telefono" pattern="[0-9]{9}" required />
+                        <input type="text" id="telefono" name="telefono"/>
                     </div>
 
                     <div class="campo">
                         <label for="mensaje">Mensaje <span>*</span></label>
-                        <textarea id="mensaje" name="mensaje" required></textarea>
+                        <textarea id="mensaje" name="mensaje" ></textarea>
                     </div>
-                    <button type="submit">Enviar</button>
+                    <button type="submit" name="contacto">Enviar</button>
                 </form>
             </div>
             <div class="mapa">
