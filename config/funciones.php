@@ -18,17 +18,16 @@ function validar($dato, $tipo) {
     } elseif ($tipo === "correo") {
         if (empty($dato)) return "Este campo es obligatorio.";
         if (!filter_var($dato, FILTER_VALIDATE_EMAIL)) return "El correo no es válido.";
-    } else {
+    } elseif ($tipo == "telefono") {
+        $telefonoLimpio = str_replace([' ', '-', '(', ')'], '', $dato);
+        if (strlen($telefonoLimpio) === 9 && is_numeric($telefonoLimpio)){
+            exit;
+        }else{
+            return "El número de teléfono no es válido";
+        }
+    }
+    else {
         exit();
     }
 } 
-
-function telefono($telefono){
-    $telefonoLimpio = str_replace([' ', '-', '(', ')'], '', $telefono);
-    if (strlen($telefonoLimpio) === 9 && is_numeric($telefonoLimpio)){
-        exit;
-    }else{
-        return "El número de teléfono no es válido";
-    }
-}
 ?>

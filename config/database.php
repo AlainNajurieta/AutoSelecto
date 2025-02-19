@@ -3,7 +3,7 @@
 
     $bdconexion ="localhost";
     $username ="root";
-    $password ="";
+    $password ="root";
 
     $bd = "AutoSelecto";
 
@@ -16,7 +16,7 @@
 
     } catch (Throwable $th) {
         echo "Error en la conexion";
-        include "error.php";
+        include "error404.php";
         exit();
     }
 ?>

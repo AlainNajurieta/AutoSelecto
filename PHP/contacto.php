@@ -2,8 +2,10 @@
     include "cabecera.php";
     require_once "../config/funciones.php";
     require_once "../config/database.php";
-    session_start();
-    $id = $_SESSION['id'];
+
+    if(isset($_SESSION['id'])){
+        $id = $_SESSION['id'];
+    }
 ?>
         <link rel="stylesheet" type="text/css" media="screen" href="../CSS/contactos.css" />
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
@@ -11,34 +13,38 @@
     include "navegador.php";
 
     // validar formulario
-    if(isset(($_POST["contacto"]))) {
+    if(isset($_POST["contacto"])) {
         $errores = [];
         if(!empty($_POST['tratamiento'])){
             $tratamiento=$_POST['tratamiento'];
+        }else{
+            $tratamiento=NULL;
         }
         $nombre=$_POST["nombre"];
         $apellido = $_POST["apellido"];
-        $fechaNacimiento=$_POST['fecha'];
+        $fechaNacimiento = date('Y-m-d', strtotime($_POST['fecha']));
+
         $telefono = $_POST["telefono"];
         $mensaje = $_POST["mensaje"];
         
-        $apelldio=sanearDato($apellido);
+        $apellido=sanearDato($apellido);
 
         $errores['nombre']=validar($nombre,"texto");
         $errores['mensaje']=validar($mensaje,"texto");
-        $errores['telefono']=telefono($telefono);
+        $errores['telefono']=validar($telefono, "telefono");
 
         if(empty(array_filter($errores))){
-            $sql="insert into preguntas (Nombre, Telefono, Mensaje, Fecha_Nac, Tratamiento, id_cliente) values ('$nombre','$telefono','$mensaje','$apellido','$fechaNacimiento','$tratamiento','$id')";
+            $sql="insert into preguntas (Nombre, Telefono, Mensaje, Apellido, Fecha_nac, Tratamiento, id_cliente) values ('$nombre','$telefono','$mensaje','$apellido','$fechaNacimiento','$tratamiento','$id')";
             $resul = mysqli_query($conexion, $sql);
             if (!$resul) {
                 $error = "Error en consulta - ".mysqli_error($conexion);
+                include "error404.php";
                 exit();
             }else{
-                $_GET['page']='contacto.php';
+                include "error404.php";
             }
         }else{
-            $_GET['page']= "contacto.php";
+            include "error404.php";
         }
     }
 

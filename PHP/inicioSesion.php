@@ -22,7 +22,7 @@
 
             <div class="buttons">
                 <button type="button" onclick="location.href='registro.php'">Registrarse</button>
-                <input type="submit" name="enviar" value="Iniciar Sesión" id="enviar"/>
+                <input type="submit" name="enviar" value="Siguiente" id="enviar"/>
             </div>
         </form>
     </div>

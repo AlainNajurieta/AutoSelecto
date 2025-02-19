@@ -25,7 +25,7 @@
 
             <div class="buttons">
                 <button type="button" onclick="location.href='inicioSesion.php'">Iniciar sesión</button>
-                <input type="submit" name="registrar" value="Registrase" id="registrar"/>
+                <input type="submit" name="registrar" value="Siguiente" id="registrar"/>
             </div>
         </form>
     </div>

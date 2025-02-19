@@ -79,23 +79,14 @@ button:hover {
 }
 
 /* Estilos específicos para el formulario de inicio de sesión */
-.inicio button[type="button"] {
+button[type="button"] {
     background-color: #28a745;
     color: white;
 }
 
-.inicio input[type="submit"] {
+input[type="submit"] {
     background-color: #1B365D;
     color: white;
 }
 
-/* Estilos específicos para el formulario de registro */
-.registro button[type="button"] {
-    background-color: #ff7f50;
-    color: white;
-}
 
-.registro input[type="submit"] {
-    background-color: #4C8D89;
-    color: white;
-}

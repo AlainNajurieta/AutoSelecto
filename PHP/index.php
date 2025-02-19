@@ -1,5 +1,6 @@
 <?php 
 require_once "../config/funciones.php";
+require_once "../config/database.php";
 session_start();
 // Bloque de redirección a vistas;
 // queda hacer consulta para coger id y pasarlo por $session
@@ -42,7 +43,28 @@ if (isset($_GET['page'])) {
     }
 
     if(empty($errores)){
-        include 'principal.php';
+
+
+        
+        $sql = "SELECT * FROM clientes WHERE usuario = '$usuario'";
+        $resul = mysqli_query($conexion, $sql);
+        if (!$resul) {
+            $error = "Error en consulta - ".mysqli_error($conexion);
+            include "view_event.php";
+            exit();
+        }
+        $usuario=array();
+        $usuario = mysqli_fetch_assoc($resul);
+
+        if($contrasena == $usuario['contraseña']){
+            $id = $usuario['ID'];
+            $_SESSION['id']=$id;
+            include 'principal.php';
+        }else{
+            $errorContraseña = "Contraseña incorrecta";
+            include 'inicioSesion.php';
+        }
+
     } else {
         include 'inicioSesion.php';
     }
@@ -58,7 +80,7 @@ if(isset($_POST['registrar'])){
 
     $usuario = isset($_POST["usuario"]) ? trim($_POST["usuario"]) : "";
     $contrasena = isset($_POST["contrasena"]) ? trim($_POST["contrasena"]) : "";
-    $correo = isset($_POST["correo"]) ? trim($_POST["uscorreouario"]) : "";
+    $correo = isset($_POST["correo"]) ? trim($_POST["correo"]) : "";
 
     $erroresUsuario = validar($usuario, "texto");
     $erroresContraseña = validar($contrasena, "passwd");
@@ -77,7 +99,15 @@ if(isset($_POST['registrar'])){
     }
 
     if(empty($errores)){
-
+        $sql="insert into clientes (usuario, contraseña, correo) values ('$usuario', '$contrasena', '$correo')";
+        $resul = mysqli_query($conexion, $sql);
+        if (!$resul) {
+            $error = "Error en consulta - ".mysqli_error($conexion);
+            include "error404.php";
+            exit();
+        }
+    }else{
+        include "registro.php";
     }
 }
 
