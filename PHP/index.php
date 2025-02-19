@@ -30,14 +30,12 @@ if (isset($_GET['page'])) {
         include 'contacto.php';
     } elseif ($page === 'contenido_general.php') {
         include 'contenido_general.php';
-    } elseif ($page === 'ofertas_destacadas_ambas.php') {
-        include 'ofertas_destacadas_ambas.php';
-    } elseif ($page === 'ofertas_destacadas_coches.php') {
-        include 'ofertas_destacadas_coches.php';
-    } elseif ($page === 'ofertas_destacadas_motos.php') {
-        include 'ofertas_destacadas_motos.php';
+    } elseif ($page === '.php') {
+        include ' catalogo.php';
+    } elseif ($page === 'noticias.php') {
+        include 'noticias.php';
     } else {
-        include 'error.php';
+        include 'error404.php';
     }
 } else if(isset(($_POST["enviar"]))) {
     $errores = [];
@@ -57,10 +55,10 @@ if (isset($_GET['page'])) {
         $errores['contrasena'] = $erroresContraseña;
     }
 
-    if(isset($errores)){
-        include 'inicioSesion.php';
+    if(empty($errores)){
+        include 'principal.php';
     } else {
-        include 'php/principal.php';
+        include 'inicioSesion.php';
     }
     
     // Si hay errores, mostrar inicioSesion.php, si no, continuar a principal.php
