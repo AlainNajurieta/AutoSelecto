@@ -1,0 +1,101 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    background: white;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+
+h2 {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    text-align: left;
+    font-weight: bold;
+    margin: 10px 0 5px;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.buttons {
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
+}
+
+button {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    font-weight: bold;
+}
+input[type="submit"] {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+button[type="button"] {
+    color: white;
+}
+
+button[type="submit"] {
+    color: white;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+/* Estilos específicos para el formulario de inicio de sesión */
+.inicio button[type="button"] {
+    background-color: #28a745;
+    color: white;
+}
+
+.inicio input[type="submit"] {
+    background-color: #1B365D;
+    color: white;
+}
+
+/* Estilos específicos para el formulario de registro */
+.registro button[type="button"] {
+    background-color: #ff7f50;
+    color: white;
+}
+
+.registro input[type="submit"] {
+    background-color: #4C8D89;
+    color: white;
+}

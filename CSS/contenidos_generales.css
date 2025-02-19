@@ -1,0 +1,97 @@
+body {
+    background-color: rgb(24, 24, 24);
+    color: rgb(200, 200, 200);
+}
+
+.titulo-principal {
+    text-align: center;
+    background-color: rgb(36, 36, 36);
+    color: rgb(200, 200, 200);
+    padding: 20px;
+    margin-bottom: 0;
+}
+
+.subtitulo {
+    text-align: center;
+    background-color: rgb(48, 48, 48);
+    color: rgb(200, 200, 200);
+    margin-top: 0;
+    padding: 10px;
+}
+
+.contenedor {
+    width: 100%;
+    margin: auto;
+}
+
+.card {
+    display: inline-block;
+    width: calc(33% - 14px);
+    height: 400px;
+    text-align: justify;
+    margin-inline: 5px;
+    margin-bottom: 10px;
+    position: relative;
+    text-align: center;
+    border-radius: 5%;
+    background-color: rgb(36, 36, 36);
+    border: 1px solid rgb(80, 80, 80);
+}
+.carta {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: calc(100% - 14px);
+    height: 400px;
+    text-align: justify;
+    margin-inline: 5px;
+    margin-bottom: 10px;
+    position: relative;
+    border-radius: 5%;
+    background-color: rgb(36, 36, 36);
+    border: 1px solid rgb(80, 80, 80);
+}
+
+
+.card-mecanica { background-image: url(../imagenes/motor.webp); background-size: cover; }
+.card-noticias { background-image: url(../imagenes/news.jpg); background-size: cover; }
+.card-preguntas { background-image: url(../imagenes/marcas.webp); background-size: cover; }
+.card-catalogo { background-image: url(../imagenes/preguntas.jpg); background-size: cover; }
+
+
+.centrar {
+    margin-top: auto;
+}
+
+.descripcion-card {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    font-size: 30px;
+    background-color: rgb(36, 36, 36);
+    color: rgb(220, 220, 220);
+    transition: 1s;
+    border-radius: 5%;
+    border: 1px solid rgb(80, 80, 80);
+}
+
+.descripcion-card p {
+    position: absolute;
+    top: 33%;
+    margin-top: auto;
+    margin-bottom: auto;
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
+.descripcion-card:hover {
+    opacity: 100%;
+}
+
+a {
+    text-decoration: none;
+    color: rgb(220, 220, 220);
+}

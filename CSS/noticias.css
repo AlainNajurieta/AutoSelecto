@@ -1,0 +1,71 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+.cuerpo {
+    width: 80%;
+    margin: 20px auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    color: #222;
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+
+h2 {
+    color: #444;
+    font-size: 1.8em;
+    margin-top: 20px;
+}
+
+h3, h4 {
+    color: #555;
+    font-size: 1.4em;
+}
+
+p {
+    font-size: 1em;
+    line-height: 1.6;
+    color: #666;
+}
+
+b {
+    color: #111;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 10px auto;
+    border-radius: 5px;
+}
+
+hr {
+    border: none;
+    height: 2px;
+    background: #ccc;
+    margin: 20px 0;
+}
+
+.coche_combustion, .coche_electrico, .moto {
+    margin-top: 30px;
+    padding: 20px;
+    background: #f8f8f8;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+
+
+
