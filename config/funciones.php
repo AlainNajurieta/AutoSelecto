@@ -22,4 +22,13 @@ function validar($dato, $tipo) {
         exit();
     }
 } 
+
+function telefono($telefono){
+    $telefonoLimpio = str_replace([' ', '-', '(', ')'], '', $telefono);
+    if (strlen($telefonoLimpio) === 9 && is_numeric($telefonoLimpio)){
+        exit;
+    }else{
+        return "El número de teléfono no es válido";
+    }
+}
 ?>

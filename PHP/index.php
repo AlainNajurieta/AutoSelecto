@@ -1,6 +1,9 @@
 <?php 
 require_once "../config/funciones.php";
+session_start();
 // Bloque de redirección a vistas;
+// queda hacer consulta para coger id y pasarlo por $session
+// $_session['id']=id
 if (isset($_GET['page'])) {
     $page = $_GET['page'] ?? '';
     if ($page === 'principal.php') {

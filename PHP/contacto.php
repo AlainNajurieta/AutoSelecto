@@ -1,40 +1,14 @@
 <?php 
     include "cabecera.php";
+    require_once "../config/funciones.php";
+    require_once "../config/database.php";
+    session_start();
+    $id = $_SESSION['id'];
 ?>
         <link rel="stylesheet" type="text/css" media="screen" href="../CSS/contactos.css" />
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
 <?php 
     include "navegador.php";
-
-    function sanearDato($dato) {
-        return trim(htmlspecialchars($dato));
-    }
-
-    function telefono($telefono){
-        $telefonoLimpio = str_replace([' ', '-', '(', ')'], '', $telefono);
-        if (strlen($telefonoLimpio) === 9 && is_numeric($telefonoLimpio)){
-            exit;
-        }else{
-            return "El número de teléfono no es válido";
-        }
-    }
-
-    function validar($dato, $tipo) {
-        $dato = sanearDato($dato);
-        if ($tipo === "texto") {
-            if (empty($dato)) return "Este campo es obligatorio.";
-        } elseif ($tipo === "fecha") {
-            if (empty($dato)) return "Este campo es obligatorio.";
-            if (!is_numeric($dato) || $dato < 3 || $dato > 120) return "La edad no es válida.";
-        } elseif ($tipo === "passwd") {
-            if (empty($dato)) return "Este campo es obligatorio.";
-        } elseif ($tipo === "seleccion") {
-            if (empty($dato)) return "Debe seleccionar al menos uno.";
-        } else {
-            exit();
-        }
-    }
-
 
     // validar formulario
     if(isset(($_POST["contacto"]))) {
@@ -48,14 +22,14 @@
         $telefono = $_POST["telefono"];
         $mensaje = $_POST["mensaje"];
         
-        sanearDato($apellido);
+        $apelldio=sanearDato($apellido);
 
         $errores['nombre']=validar($nombre,"texto");
         $errores['mensaje']=validar($mensaje,"texto");
         $errores['telefono']=telefono($telefono);
 
         if(empty(array_filter($errores))){
-            $sql="insert into preguntas (mensaje) values ('$mensaje')";
+            $sql="insert into preguntas (Nombre, Telefono, Mensaje, Fecha_Nac, Tratamiento, id_cliente) values ('$nombre','$telefono','$mensaje','$apellido','$fechaNacimiento','$tratamiento','$id')";
             $resul = mysqli_query($conexion, $sql);
             if (!$resul) {
                 $error = "Error en consulta - ".mysqli_error($conexion);
@@ -78,6 +52,7 @@
             <div class="formulario">
                 <form action="contacto.php" method="post">
                     <h1>Contáctanos</h1>
+                    <input type="hidden" name="idUsuario">
                     <div class="campo">
                         <label>Tratamiento</label>
                         <div class="tratamiento">
