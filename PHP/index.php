@@ -1,24 +1,5 @@
 <?php 
-//Funcion de Saneo
-function sanearDato($dato) {
-    return trim(htmlspecialchars($dato));
-}
-//Funcion de validación
-function validar($dato, $tipo) {
-    $dato = sanearDato($dato);
-    if ($tipo === "texto") {
-        if (empty($dato)) return "Este campo es obligatorio.";
-    } elseif ($tipo === "fecha") {
-        if (empty($dato)) return "Este campo es obligatorio.";
-        if (!is_numeric($dato) || $dato < 3 || $dato > 120) return "La edad no es válida.";
-    } elseif ($tipo === "passwd") {
-        if (empty($dato)) return "Este campo es obligatorio.";
-    } elseif ($tipo === "seleccion") {
-        if (empty($dato)) return "Debe seleccionar al menos uno.";
-    } else {
-        exit();
-    }
-}
+require_once "../config/funciones.php";
 // Bloque de redirección a vistas;
 if (isset($_GET['page'])) {
     $page = $_GET['page'] ?? '';
@@ -34,6 +15,8 @@ if (isset($_GET['page'])) {
         include ' catalogo.php';
     } elseif ($page === 'noticias.php') {
         include 'noticias.php';
+    } elseif ($page === 'coches.php') {
+        include 'coches.php';
     } else {
         include 'error404.php';
     }
@@ -65,6 +48,34 @@ if (isset($_GET['page'])) {
     
 } else {
     include 'inicioSesion.php';
+}
+
+if(isset($_POST['registrar'])){
+    $errores = [];
+
+    $usuario = isset($_POST["usuario"]) ? trim($_POST["usuario"]) : "";
+    $contrasena = isset($_POST["contrasena"]) ? trim($_POST["contrasena"]) : "";
+    $correo = isset($_POST["correo"]) ? trim($_POST["uscorreouario"]) : "";
+
+    $erroresUsuario = validar($usuario, "texto");
+    $erroresContraseña = validar($contrasena, "passwd");
+    $erroresCorreo= validar($correo, "correo");
+
+    echo $erroresUsuario . $erroresContraseña;
+    // Agregar errores al array si existen
+    if (!empty($erroresUsuario)) {
+        $errores['usuario'] = $erroresUsuario;
+    }
+    if (!empty($erroresContraseña)) {
+        $errores['contrasena'] = $erroresContraseña;
+    }
+    if (!empty($erroresCorreo)) {
+        $errores['correo'] = $erroresCorreo;
+    }
+
+    if(empty($errores)){
+
+    }
 }
 
 

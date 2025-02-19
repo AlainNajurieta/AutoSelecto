@@ -15,21 +15,21 @@
 
         <div class="seccion2">
             <div class="item">
-                <a href="#"><img src="../imagenes/contenidos.jpg" alt="imagen contenidos generales">
+                <a href="index.php?page=contenido_general.php"><img src="../imagenes/contenidos.jpg" alt="imagen contenidos generales">
                 <p>Contenidos generales</p></a>
             </div>
             <div class="item">
-                <a href="#"><img src="../imagenes/ultimas.jpg" alt="Imagen últimas noticias">
+                <a href="index.php?page=noticias.php"><img src="../imagenes/ultimas.jpg" alt="Imagen últimas noticias">
                 <p>Últimas noticias</p></a>
             </div>
             <div class="item">
-                <a href="consejos_mecanicos.php"><img src="../imagenes/seguro_vida.jpg" alt="imagen consejos mecánicos">
+                <a href="index.php?page=consejos_mecanicos.php"><img src="../imagenes/seguro_vida.jpg" alt="imagen consejos mecánicos">
                 <p>Consejos mecánicos</p></a>
             </div>
         </div>
 
         <div class="seccion3">
-        <a href="">
+        <a href="index.php?page=coches.php">
             <div class="imagen-texto">
                 
                 <img src="../imagenes/ofertas_coches_septiembre.jpg" alt="imagen ofertas">
