@@ -12,6 +12,11 @@
                 <h2>Autoselecto</h2>
             </div>
         </div>
+        <div class="contenedor-combinado">
+        <div class="texto-intermedio">
+            <h3>Mantente al Día con nosotros</h3>
+            <p>Explora las últimas novedades del mundo automotor, desde análisis detallados hasta consejos prácticos de mecánica. Encuentra todo lo que necesitas para mantener tu coche a punto y tomar decisiones informadas.</p>
+        </div>
 
         <div class="seccion2">
             <div class="item">
@@ -29,16 +34,15 @@
         </div>
 
         <div class="seccion3">
-        <a href="index.php?page=coches.php">
-            <div class="imagen-texto">
-                
-                <img src="../imagenes/ofertas_coches_septiembre.jpg" alt="imagen ofertas">
-                <p>Ofertas destacadas</p>
-            </div>
-        </a>
-
+            <a href="index.php?page=coches.php">
+                <div class="imagen-texto">
+                    <img src="../imagenes/ofertas_coches_septiembre.jpg" alt="imagen ofertas">
+                    <p>Ofertas destacadas</p>
+                </div>
+            </a>
         </div>
-    </main>
+    </div>
+</main>
 
     <?php 
     include "pie.php";
