@@ -33,7 +33,7 @@ if (isset($_GET['page'])) {
     $erroresUsuario = validar($usuario, "texto");
     $erroresContraseña = validar($contrasena, "passwd");
 
-    echo $erroresUsuario . $erroresContraseña;
+    
     // Agregar errores al array si existen
     if (!empty($erroresUsuario)) {
         $errores['usuario'] = $erroresUsuario;
@@ -50,32 +50,32 @@ if (isset($_GET['page'])) {
         $resul = mysqli_query($conexion, $sql);
         if (!$resul) {
             $error = "Error en consulta - ".mysqli_error($conexion);
-            include "view_event.php";
+            include "error404.php";
             exit();
         }
         $usuario=array();
         $usuario = mysqli_fetch_assoc($resul);
-
-        if($contrasena == $usuario['contraseña']){
-            $id = $usuario['ID'];
-            $_SESSION['id']=$id;
-            include 'principal.php';
-        }else{
+        if(!empty($usuario['contraseña'])){
+            if($contrasena == $usuario['contraseña']){
+                $id = $usuario['ID'];
+                $_SESSION['id']=$id;
+                include 'principal.php';
+            }else{
+                $errorContraseña = "Contraseña incorrecta";
+                include "inicio.php";
+            }
+        } else {
             $errorContraseña = "Contraseña incorrecta";
-            include 'inicioSesion.php';
+            include "inicio.php";
         }
 
     } else {
-        include 'inicioSesion.php';
+        include "inicio.php";
     }
     
     // Si hay errores, mostrar inicioSesion.php, si no, continuar a principal.php
     
-} else {
-    include 'inicioSesion.php';
-}
-
-if(isset($_POST['registrar'])){
+} elseif(isset($_POST['registrar'])){
     $errores = [];
 
     $usuario = isset($_POST["usuario"]) ? trim($_POST["usuario"]) : "";
@@ -86,7 +86,6 @@ if(isset($_POST['registrar'])){
     $erroresContraseña = validar($contrasena, "passwd");
     $erroresCorreo= validar($correo, "correo");
 
-    echo $erroresUsuario . $erroresContraseña;
     // Agregar errores al array si existen
     if (!empty($erroresUsuario)) {
         $errores['usuario'] = $erroresUsuario;
@@ -106,10 +105,15 @@ if(isset($_POST['registrar'])){
             include "error404.php";
             exit();
         }
+
     }else{
         include "registro.php";
     }
+} else {
+    include "inicio.php";
 }
+
+
 
 
 

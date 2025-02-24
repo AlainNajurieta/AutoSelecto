@@ -3,7 +3,7 @@
 
     $bdconexion ="localhost";
     $username ="root";
-    $password ="root";
+    $password ="";
 
     $bd = "AutoSelecto";
 

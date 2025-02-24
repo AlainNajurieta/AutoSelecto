@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type='text/css' media='screen' href="../CSS/login.css">
-    <title>Registro</title>
+    <link rel="stylesheet" type='text/css' media='screen' href="../CSS/inicio.css">
+    <title>Iniciar Sesión</title>
 </head>
 <body>
     <div class="form-container">
         <form action="index.php" method="post">
-            <h2>Regístrate</h2>
+            <h2>Iniciar Sesión</h2>
 
             <!-- Usuario -->
             <label for="usuario">Usuario</label>
@@ -26,21 +26,15 @@
             <?php 
                 if (isset($errores['contrasena'])) { 
                     echo '<div class="error">' . $errores['contrasena'] . '</div>'; 
-                } 
-            ?>
-
-            <!-- Correo electrónico -->
-            <label for="correo">Correo electrónico</label>
-            <input type="text" name="correo" id="correo">
-            <?php 
-                if (isset($errores['correo'])) { 
-                    echo '<div class="error">' . $errores['correo'] . '</div>'; 
-                } 
+                }
+                if (isset($errorContraseña)) { 
+                    echo '<div class="error">' . $errorContraseña . '</div>'; 
+                }
             ?>
 
             <!-- Botones -->
-            <button type="button" class="btn" onclick="location.href='inicio.php'">Iniciar Sesión</button>
-            <input type="submit" name="registrar" value="Siguiente" class="btn"/>
+            <button type="button" class="btn" onclick="location.href='registro.php'">Registrarse</button>
+            <input type="submit" name="enviar" value="Siguiente" class="btn"/>
         </form>
     </div>
 </body>
