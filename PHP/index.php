@@ -2,9 +2,7 @@
 require_once "../config/funciones.php";
 require_once "../config/database.php";
 session_start();
-// Bloque de redirección a vistas;
-// queda hacer consulta para coger id y pasarlo por $session
-// $_session['id']=id
+
 if (isset($_GET['page'])) {
     $page = $_GET['page'] ?? '';
     if ($page === 'principal.php') {
@@ -105,7 +103,7 @@ if (isset($_GET['page'])) {
             include "error404.php";
             exit();
         }
-
+        include "inicio.php";
     }else{
         include "registro.php";
     }

@@ -1,5 +1,6 @@
 <?php 
     include "cabecera.php";
+    include "../config/database.php";
 ?>
     <link rel="stylesheet" href="../CSS/coches.css">
 <?php 
@@ -7,18 +8,56 @@
 ?> 
 <body>
     <header>
-        <h1>Coches</h1>
+        <h1>Vehículos</h1>
     </header>
-
     <main>
-        <section class="services">
-            <div class="service-card">
-                <img src="../imagenes/ultimas.jpg" alt="Lavado de Servicio Completo">
-                <p class="price">$44</p>
-                <p class="description">Sample text. Click to select the text box. Click again or double click to start editing the text.</p>
-                <a href="#" class="button">MÁS INFORMACIÓN</a>
-                <a href="#" class="buy-button">COMPRAR</a> 
+        <form method="get" action="coches.php">
+            <div class="filter-bar">
+                <button type="submit" class="filter-button <?php if (!isset($_GET['filter']) || $_GET['filter'] == 'todos') echo 'active'; ?>" name="filter" value="todos">Todos</button>
+                <button type="submit" class="filter-button <?php if (isset($_GET['filter']) && $_GET['filter'] == 'coches') echo 'active'; ?>" name="filter" value="coches">Coches</button>
+                <button type="submit" class="filter-button <?php if (isset($_GET['filter']) && $_GET['filter'] == 'motos') echo 'active'; ?>" name="filter" value="motos">Motos</button>
             </div>
+        </form>
+        <section class="services">
+        <?php
+            if(isset($_GET['filter'])){$filtro=$_GET['filter'];}else{$filtro="todos";}
+            if(isset($filtro) && $filtro =="coches"){
+                $sql = "SELECT * FROM coches WHERE tipoVehiculo='Coche'";
+            }else if(isset($filtro) && $filtro == "motos"){
+                $sql = "SELECT * FROM coches WHERE tipoVehiculo='Moto'";
+            }else{
+                $sql = "SELECT * FROM coches";
+            }
+            $resul = mysqli_query($conexion, $sql);
+            if (!$resul) {
+                $error = "Error en consulta - ".mysqli_error($conexion);
+                include "error404.php";
+                exit();
+            }
+            $coches = array();
+            while ($fila = mysqli_fetch_array($resul)){
+                $coches[] = $fila;
+            }
+            foreach($coches as $coche){
+            ?>
+            <div class="service-card">
+                    <img src="../imagenes/catalogo/<?php echo $coche['imagen'] ?>.jpg" alt="Imagen del vehículo">
+                    <div class="card-content">
+                        <h3><?php echo $coche['Marca']; ?></h3>
+                        <p class="kilometers">Kilómetros: <?php echo number_format($coche['Kilometros'])." km"; ?></p>
+                        <p class="price">Precio: <?php echo number_format($coche['Precio'], 2)."€"; ?></p>
+                        <p class="year">Año: <?php echo $coche['Año']; ?></p>
+                        <div class="button-group">
+                            <a href="#" class="button info">MÁS INFORMACIÓN</a>
+                            <a href="#" class="buy-button">COMPRAR</a>
+                        </div>
+                    </div>
+                </div>
+            <?php
+            }
+        ?>
+
+
 
 
         </section>
