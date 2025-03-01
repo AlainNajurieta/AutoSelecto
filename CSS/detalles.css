@@ -1,0 +1,98 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Contenedor principal centrado */
+.detalles-container {
+    width: 90%;
+    max-width: 900px;
+    background: #fff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Título centrado */
+.detalles-titulo {
+    color: #007bff;
+    text-align: center;
+}
+
+/* Contenedor para información e imagen alineadas verticalmente */
+.detalles-contenido {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+/* Información del vehículo */
+.detalles-info {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    width: 100%;
+    max-width: 600px;
+}
+
+/* Imagen centrada */
+.detalles-imagen {
+    max-width: 100%;
+    height: auto;
+    margin-top: 20px;
+    border-radius: 8px;
+}
+
+/* Enlace centrado debajo */
+.enlace-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.detalles-link {
+    display: inline-block;
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bold;
+    padding: 10px 15px;
+    border-radius: 5px;
+    background: #f8f9fa;
+    border: 1px solid #007bff;
+    text-align: center;
+    margin-top: 10px;
+}
+
+/* Media Queries para dispositivos móviles */
+@media screen and (max-width: 768px) {
+    .detalles-container {
+        width: 95%;
+    }
+
+    .detalles-info {
+        width: 100%;
+    }
+
+    .detalles-imagen {
+        max-width: 100%;
+        margin-top: 15px;
+    }
+
+    .detalles-link {
+        width: auto;
+    }
+}

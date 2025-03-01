@@ -1,0 +1,105 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 20px auto;
+    background: #fff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+h2 {
+    text-align: center;
+    color: #333;
+}
+
+.add-car {
+    display: block;
+    width: fit-content;
+    margin: 10px auto;
+    padding: 10px 15px;
+    background: #28a745;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.add-car:hover {
+    background: #218838;
+}
+
+/* Tabla responsiva */
+.car-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.car-table th, .car-table td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+.car-table th {
+    background: #007bff;
+    color: #fff;
+}
+
+.car-table tr:nth-child(even) {
+    background: #f2f2f2;
+}
+
+.car-table a {
+    text-decoration: none;
+    color: #007bff;
+    margin-right: 10px;
+}
+
+.car-table a:hover {
+    text-decoration: underline;
+}
+
+/* Media Queries para adaptabilidad */
+@media screen and (max-width: 768px) {
+    .car-table, .car-table thead, .car-table tbody, .car-table th, .car-table td, .car-table tr {
+        display: block;
+    }
+    
+    .car-table thead tr {
+        display: none;
+    }
+    
+    .car-table tr {
+        margin-bottom: 15px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        background: #fff;
+        padding: 10px;
+    }
+    
+    .car-table td {
+        text-align: right;
+        padding-left: 50%;
+        position: relative;
+    }
+    
+    .car-table td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 10px;
+        width: 50%;
+        padding-right: 10px;
+        font-weight: bold;
+        text-align: left;
+    }
+}

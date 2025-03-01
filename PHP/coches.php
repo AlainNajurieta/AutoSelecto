@@ -48,7 +48,7 @@
                         <p class="price">Precio: <?php echo number_format($coche['Precio'], 2)."€"; ?></p>
                         <p class="year">Año: <?php echo $coche['Año']; ?></p>
                         <div class="button-group">
-                            <a href="#" class="button info">MÁS INFORMACIÓN</a>
+                            <a href="index.php?catalogo=si&detalles=<?php echo $coche['ID']; ?>" class="button info">MÁS INFORMACIÓN</a>
                             <a href="#" class="buy-button">COMPRAR</a>
                         </div>
                     </div>

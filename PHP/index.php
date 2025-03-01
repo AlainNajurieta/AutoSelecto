@@ -19,6 +19,8 @@ if (isset($_GET['page'])) {
         include 'noticias.php';
     } elseif ($page === 'coches.php') {
         include 'coches.php';
+    } elseif ($page === 'administrar.php') {
+        include 'administrar.php';
     } else {
         include 'error404.php';
     }
@@ -107,6 +109,28 @@ if (isset($_GET['page'])) {
     }else{
         include "registro.php";
     }
+} elseif(isset($_GET['detalles'])){
+    
+    $sql="select * from coches where id = ".$_GET['detalles'];
+    
+    $resul = mysqli_query($conexion, $sql);
+    if (!$resul) {
+        $error = "Error en consulta - ".mysqli_error($conexion);
+        include "error404.php";
+        exit();
+    }
+    $detallescoches = array();
+    while ($fila = mysqli_fetch_array($resul)){
+        $detallescoches[] = $fila;
+    }    
+    if(isset($_GET['catalogo'])){
+        if($_GET['catalogo'] == "si"){
+            $catalogo="si";
+        } else {
+            $catalogo="no";
+        }
+    }
+    include "detalles.php";
 } else {
     include "inicio.php";
 }

@@ -30,4 +30,21 @@ function validar($dato, $tipo) {
         exit();
     }
 } 
+
+// Funcion usuario
+
+function obtener_usuario_por_id($conexion, $id) {
+    $sql = "SELECT usuario FROM clientes WHERE ID = $id";
+    $resultado = mysqli_query($conexion, $sql);
+
+    if ($resultado) {
+        $usuario = mysqli_fetch_assoc($resultado);
+        if ($usuario) {
+            return $usuario['usuario'];
+        }
+    }
+    return null;
+}
+
+
 ?>
