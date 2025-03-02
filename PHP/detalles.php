@@ -4,8 +4,13 @@
         require_once "../config/database.php";
         require_once "../config/funciones.php";
         foreach($detallescoches as $detallecoche){
-            echo "<h1 class='detalles-titulo'>Detalles del Coche: " . $detallecoche['Marca'] . " " . $detallecoche['tipoVehiculo'] . "</h1>";
-            
+            if ($detallecoche['tipoVehiculo'] == "Coche"){
+                $tipo = "del coche: ";
+            }else if($detallecoche['tipoVehiculo'] == "Moto"){
+                $tipo = "de la moto: ";
+            }
+            echo "<h1 class='detalles-titulo'>Detalles ". $tipo . $detallecoche['Marca'] . "</h1>";
+
             echo "<div class='detalles-contenido'>";
                 echo "<div class='detalles-info'>";
                     echo "<b>Año:</b> " . $detallecoche['Año'] . "<br><br>";
