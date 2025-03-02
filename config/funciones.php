@@ -21,7 +21,7 @@ function validar($dato, $tipo) {
     } elseif ($tipo == "telefono") {
         $telefonoLimpio = str_replace([' ', '-', '(', ')'], '', $dato);
         if (strlen($telefonoLimpio) === 9 && is_numeric($telefonoLimpio)){
-            exit;
+            return "";
         }else{
             return "El número de teléfono no es válido";
         }

@@ -11,90 +11,85 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
 <?php 
     include "navegador.php";
-
-    // validar formulario
-    if(isset($_POST["contacto"])) {
-        $errores = [];
-        if(!empty($_POST['tratamiento'])){
-            $tratamiento=$_POST['tratamiento'];
-        }else{
-            $tratamiento=NULL;
-        }
-        $nombre=$_POST["nombre"];
-        $apellido = $_POST["apellido"];
-        $fechaNacimiento = date('Y-m-d', strtotime($_POST['fecha']));
-
-        $telefono = $_POST["telefono"];
-        $mensaje = $_POST["mensaje"];
-        
-        $apellido=sanearDato($apellido);
-
-        $errores['nombre']=validar($nombre,"texto");
-        $errores['mensaje']=validar($mensaje,"texto");
-        $errores['telefono']=validar($telefono, "telefono");
-
-        if(empty(array_filter($errores))){
-            $sql="insert into preguntas (Nombre, Telefono, Mensaje, Apellido, Fecha_nac, Tratamiento, id_cliente) values ('$nombre','$telefono','$mensaje','$apellido','$fechaNacimiento','$tratamiento','$id')";
-            $resul = mysqli_query($conexion, $sql);
-            if (!$resul) {
-                $error = "Error en consulta - ".mysqli_error($conexion);
-                include "error404.php";
-                exit();
-            }else{
-                include "error404.php";
-            }
-        }else{
-            include "error404.php";
-        }
-    }
-
 ?>
-
-
 
     <body>
         <div class="header"></div>
         <div class="cuerpo">
             <div class="formulario">
-                <form action="contacto.php" method="post">
+                <form action="index.php" method="post">
                     <h1>Contáctanos</h1>
-                    <input type="hidden" name="idUsuario">
+                    <?php if (isset($correcto)) { ?>
+                        <div class="mensajeCorrecto">
+                            <p><?php echo $correcto; ?></p>
+                        </div>
+                    <?php } ?>
+                    <input type="hidden" name="idUsuario" value="<?php echo $id; ?>">
                     <div class="campo">
                         <label>Tratamiento</label>
                         <div class="tratamiento">
                             <div class="radio-item">
-                                <input type="radio" id="sr" name="tratamiento" value="señor">
+                                <input type="radio" id="sr" name="tratamiento" value="señor" <?php if (isset($tratamiento) && $tratamiento == "señor") { echo "checked"; } ?>>
                                 <label for="sr">Sr</label>
                             </div>
                             <div class="radio-item">
-                                <input type="radio" id="sra" name="tratamiento" value="señora">
+                                <input type="radio" id="sra" name="tratamiento" value="señora" <?php if (isset($tratamiento) && $tratamiento == "señora") { echo "checked"; } ?>>
                                 <label for="sra">Sra</label>
                             </div>
                         </div>
                     </div>
                     <div class="campo">
                         <label for="nombre">Nombre <span>*</span></label>
-                        <input type="text" id="nombre" name="nombre"  />
+                        <input type="text" id="nombre" name="nombre" <?php if (isset($nombre)){echo "value=$nombre";}?>  >
+                        <?php
+                            if (isset($errores['nombre'])) { echo "<br><span>". $errores['nombre']."</span>"; }
+                        ?>
                     </div>
                     <div class="campo">
                         <label for="apellido">Apellido</label>
-                        <input type="text" id="apellido" name="apellido" />
+                        <input type="text" id="apellido" name="apellido" <?php if (isset($apellido)){echo "value=$apellido";}?> >
                     </div>
-                    <div class="campo">
+                    <div class="campo campo-fecha">
                         <label for="fecha">Fecha de nacimiento</label>
-                        <input type="date" id="fecha" name="fecha">
+                        <div class="fecha-container">
+                            <select id="dia" name="dia">
+                                <?php for ($i = 1; $i <= 31; $i++) { ?>
+                                    <option value="<?php echo $i?>"<?php if (isset($dia) and $dia==$i){echo "selected";} ?>><?php echo $i; ?></option>
+                                <?php } ?>
+                            </select>
+                            <select id="mes" name="mes">
+                            <?php 
+                                $meses = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
+                                foreach ($meses as $num => $nombreMes) { ?>
+                                    <option value="<?php echo $num + 1; ?>" <?php if (isset($mes) && $mes == $num + 1) { echo "selected"; } ?>><?php echo $nombreMes; ?></option>
+                                <?php } ?>
+                            </select>
+                            <select id="anio" name="anio">
+                                <?php for ($i = 2025; $i >= 1900; $i--) { ?>
+                                    <option value="<?php echo $i?>"<?php if (isset($anio) and $anio==$i){echo "selected";} ?>><?php echo $i; ?></option>
+                                <?php } ?>
+                            </select>
+                        </div>
                     </div>
                     <div class="campo">
                         <label for="telefono">Teléfono <span>*</span></label>
-                        <input type="text" id="telefono" name="telefono"/>
+                        <input type="text" id="telefono" name="telefono" <?php if (isset($telefono)){echo "value=$telefono";}?> >
+                        <?php
+                            if (isset($errores['telefono'])) { echo "<br><span>".$errores['telefono']."</span>"; }
+                        ?>
                     </div>
 
                     <div class="campo">
                         <label for="mensaje">Mensaje <span>*</span></label>
-                        <textarea id="mensaje" name="mensaje" ></textarea>
+                        <textarea id="mensaje" name="mensaje"><?php if (isset($mensaje)){echo $mensaje;}?></textarea>
+                        <?php
+                            if (isset($errores['mensaje'])) { echo "<br><span>".$errores['mensaje']."</span>"; }
+                        ?>
                     </div>
+
                     <button type="submit" name="contacto">Enviar</button>
                 </form>
+
             </div>
             <div class="mapa">
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2926.8958122078243!2d-1.6602112723320361!3d42.811687696551125!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd50925f95549799%3A0x353461861374ba74!2sAv.%20de%20P%C3%ADo%20XII%2C%209%2C%2031007%20Pamplona%2C%20Navarra!5e0!3m2!1ses!2ses!4v1708970283178!5m2!1ses!2ses" width="600" height="450" style="border: 0" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>

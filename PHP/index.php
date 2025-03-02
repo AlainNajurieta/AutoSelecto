@@ -13,7 +13,7 @@ if (isset($_GET['page'])) {
         include 'contacto.php';
     } elseif ($page === 'contenido_general.php') {
         include 'contenido_general.php';
-    } elseif ($page === '.php') {
+    } elseif ($page === 'catalogo.php') {
         include ' catalogo.php';
     } elseif ($page === 'noticias.php') {
         include 'noticias.php';
@@ -43,9 +43,6 @@ if (isset($_GET['page'])) {
     }
 
     if(empty($errores)){
-
-
-        
         $sql = "SELECT * FROM clientes WHERE usuario = '$usuario'";
         $resul = mysqli_query($conexion, $sql);
         if (!$resul) {
@@ -131,6 +128,46 @@ if (isset($_GET['page'])) {
         }
     }
     include "detalles.php";
+    
+} else if(isset($_POST['contacto'])) {
+    $errores = [];
+    if(!empty($_POST['tratamiento'])){
+        $tratamiento=$_POST['tratamiento'];
+    }else{
+        $tratamiento=NULL;
+    }
+    $nombre=$_POST["nombre"];
+    $apellido = $_POST["apellido"];
+    $dia=$_POST["dia"];
+    $mes=$_POST["mes"];
+    $anio=$_POST["anio"];
+    $fechaNacimiento = $anio."/".$mes."/".$dia;
+    $id = $_POST['idUsuario'];
+
+    $telefono = $_POST["telefono"];
+    $mensaje = $_POST["mensaje"];
+    
+    $apellido=sanearDato($apellido);
+
+    $errores['nombre']=validar($nombre,"texto");
+    $errores['mensaje']=validar($mensaje,"texto");
+    $errores['telefono']=validar($telefono, "telefono");
+
+    if(empty(array_filter($errores))){
+        $sql="insert into preguntas (Nombre, Telefono, Mensaje, Apellido, Fecha_nac, Tratamiento, id_cliente) values ('$nombre','$telefono','$mensaje','$apellido','$fechaNacimiento','$tratamiento','$id')";
+        $resul = mysqli_query($conexion, $sql);
+        unset($nombre, $apellido, $telefono, $mensaje, $dia, $mes, $anio, $tratamiento);
+        if (!$resul) {
+            $error = "Error en consulta - ".mysqli_error($conexion);
+            include "error404.php";
+            exit();
+        }else{
+            $correcto = "Se ha enviado correctamente";
+            include "contacto.php";
+        }
+    }else{
+        include "contacto.php";
+    }
 } else {
     include "inicio.php";
 }

@@ -48,6 +48,31 @@ form h1 {
     margin-bottom: 3%;
 }
 
+.campo-fecha {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+
+.fecha-container {
+    display: flex;
+    gap: 7px;
+    align-items: center;
+}
+
+.fecha-container select {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    cursor: pointer;
+}
+
+#dia, #mes, #anio {
+    width: 16%;
+}
+
 form label {
     display: block;
     margin-bottom: 2%;
@@ -93,6 +118,22 @@ form label span {
     color: red;
     font-weight: bold;
 }
+
+form span {
+    color: red;
+}
+
+.mensajeCorrecto {
+    background-color: #d4edda; 
+    color: #155724;
+    border: 1px solid #c3e6cb; 
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    font-size: 16px;
+    text-align: center;
+}
+
 
 .mapa {
     margin: auto;
