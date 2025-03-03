@@ -21,18 +21,7 @@
             <th>Acciones</th>
         </tr>
         <?php
-            $sql = "SELECT * FROM coches";
-        
-            $resul = mysqli_query($conexion, $sql);
-            if (!$resul) {
-                $error = "Error en consulta - ".mysqli_error($conexion);
-                include "error404.php";
-                exit();
-            }
-            $coches = array();
-            while ($fila = mysqli_fetch_array($resul)){
-                $coches[] = $fila;
-            }
+            $coches = obtenerCoches($conexion);
             foreach($coches as $coche){
                 $id = $coche['ID'];
                 echo "<tr>";
@@ -43,9 +32,9 @@
                 echo "<td>" . $coche['Color'] . "</td>";
                 echo "<td>" . $coche['Kilometros'] . "</td>";
                 echo "<td>" . $coche['Precio'] . "</td>";
-                echo "<td><a href='index.php?id=$id&editar=editar'>Editar</a> | ";
-                echo "<a href='index.php?page=admin&eliminar=$id'>Eliminar</a> | ";
-                echo "<a href='index.php?detalles=$id'>Ver Detalles</a></td>";
+                echo "<td><a href='index.php?detalles=$id'>Editar</a> | ";
+                echo "<a href='index.php?page=administrar.php&eliminar=$id'>Eliminar</a> | ";
+                echo "<a href='index.php?detalles=$id&catalogo=no'>Ver Detalles</a></td>";
                 echo "</tr>";
             }
         ?>

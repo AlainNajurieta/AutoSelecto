@@ -1,8 +1,6 @@
 <link rel="stylesheet" type='text/css' media='screen' href="../CSS/detalles.css">
 <div class="detalles-container">
     <?php
-        require_once "../config/database.php";
-        require_once "../config/funciones.php";
         foreach($detallescoches as $detallecoche){
             if ($detallecoche['tipoVehiculo'] == "Coche"){
                 $tipo = "del coche: ";

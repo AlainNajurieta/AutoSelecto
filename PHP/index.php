@@ -2,7 +2,9 @@
 require_once "../config/funciones.php";
 require_once "../config/database.php";
 session_start();
-
+if(isset($_GET['eliminar'])){
+    EliminarCoche($conexion,$_GET['eliminar']);
+}
 if (isset($_GET['page'])) {
     $page = $_GET['page'] ?? '';
     if ($page === 'principal.php') {
@@ -21,6 +23,8 @@ if (isset($_GET['page'])) {
         include 'coches.php';
     } elseif ($page === 'administrar.php') {
         include 'administrar.php';
+    } elseif ($page === 'editar.php') {
+        include 'editar.php';
     } else {
         include 'error404.php';
     }
@@ -108,26 +112,19 @@ if (isset($_GET['page'])) {
     }
 } elseif(isset($_GET['detalles'])){
     
-    $sql="select * from coches where id = ".$_GET['detalles'];
-    
-    $resul = mysqli_query($conexion, $sql);
-    if (!$resul) {
-        $error = "Error en consulta - ".mysqli_error($conexion);
-        include "error404.php";
-        exit();
-    }
-    $detallescoches = array();
-    while ($fila = mysqli_fetch_array($resul)){
-        $detallescoches[] = $fila;
-    }    
+    $detallescoches = obtenerDetallesCoche($conexion, $_GET['detalles']);
     if(isset($_GET['catalogo'])){
         if($_GET['catalogo'] == "si"){
             $catalogo="si";
+            include "detalles.php";
         } else {
             $catalogo="no";
-        }
+            include "detalles.php";
+        } 
+    } else {
+        include "editar.php";
     }
-    include "detalles.php";
+    
     
 } else if(isset($_POST['contacto'])) {
     $errores = [];
@@ -168,6 +165,23 @@ if (isset($_GET['page'])) {
     }else{
         include "contacto.php";
     }
+} elseif (isset($_POST['modificar_precio'])) {
+    $errores = [];
+
+    $precio = isset($_POST["nuevo_precio"]) ? trim($_POST["nuevo_precio"]) : "";
+
+    if (empty($precio)) {
+        $errores['precio'] = "Este campo es obligatorio";
+    }
+
+    if (empty($errores)) {
+        actualizarPrecioCoche($conexion, $precio, $_POST['id']);
+        $actualizacion = "El precio se ha actualizado";
+    } 
+    $detallescoches = obtenerDetallesCoche($conexion, $_POST['id']);
+
+    include "editar.php";
+    
 } else {
     include "inicio.php";
 }

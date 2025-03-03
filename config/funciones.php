@@ -46,5 +46,72 @@ function obtener_usuario_por_id($conexion, $id) {
     return null;
 }
 
+// Función todos los coches
 
+function obtenerCoches($conexion) {
+    $sql = "SELECT * FROM coches";
+    $resul = mysqli_query($conexion, $sql);
+
+    if (!$resul) {
+        $error = "Error en consulta - " . mysqli_error($conexion);
+        include "error404.php";
+        exit();
+    }
+
+    $coches = [];
+    while ($fila = mysqli_fetch_assoc($resul)) { 
+        $coches[] = $fila;
+    }
+
+    return $coches;
+}
+
+// Función detallesCoche 
+function obtenerDetallesCoche($conexion, $id) {
+    
+    $sql = "SELECT * FROM coches WHERE id = $id";
+    $resul = mysqli_query($conexion, $sql);
+
+    if (!$resul) {
+        $error = "Error en consulta - " . mysqli_error($conexion);
+        include "error404.php";
+        exit();
+    }
+
+    $detallescoches = [];
+    while ($fila = mysqli_fetch_assoc($resul)) { 
+        $detallescoches[] = $fila;
+    }
+
+    return $detallescoches;
+}
+
+// Modificar precio
+function actualizarPrecioCoche($conexion, $nuevo_precio, $id) {
+
+    $sql = "UPDATE coches SET Precio = $nuevo_precio WHERE ID = $id";
+
+    $resul = mysqli_query($conexion, $sql);
+
+    if (!$resul) {
+        $error = "Error en consulta - " . mysqli_error($conexion);
+        include "error.php"; 
+        exit(); 
+    }
+
+    return $resul;
+}
+
+function EliminarCoche($conexion,$id) {
+    $sql="DELETE FROM Coches WHERE ID=".$_GET['eliminar'];
+
+    $resul = mysqli_query($conexion, $sql);
+    if (!$resul) 
+    {
+        $error = "Error en consulta - ".mysqli_error($conexion);
+        include "error.php";
+        exit();
+    }
+    return $resul;
+}
 ?>
