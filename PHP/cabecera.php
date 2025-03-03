@@ -9,5 +9,5 @@
     <link rel='stylesheet' type='text/css' media='screen' href='../css/cabecera.css'>
     <link rel='stylesheet' type='text/css' media='screen' href='../css/pie_de_pagina.css'>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="shortcut icon" href="../imagenes/logo-search-grid-1x.png" type="image/x-icon">
+    <link rel="shortcut icon" href="../imagenes/AutoSelecto1.jpg" type="image/x-icon">
 

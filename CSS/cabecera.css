@@ -1,66 +1,78 @@
 body {
     background-color: rgb(24, 24, 24);
     color: rgb(200, 200, 200);
-}
-
-.cabecera {
-    font-family: Arial, sans-serif;
-    background: linear-gradient(to bottom, rgb(24, 24, 24), rgb(80, 80, 80));
-    font-size: 20px;
-    width: 100%;
-    margin-top: 0;
-    padding-bottom: 1.1%;
-    opacity: 95%;
-    grid-row: 1;
-    grid-column: 1 / 5;
-    position: relative;
-    z-index: 1000;
-}
-
-.menu {
-    width: 100%;
     margin: 0;
-    position: sticky;
-    top: 0;
-    border-bottom: 1px solid rgb(200, 200, 200);
+    font-family: Arial, sans-serif;
 }
 
+/* CABECERA */
+.cabecera {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background: linear-gradient(to bottom, rgb(24, 24, 24), rgb(80, 80, 80));
+    width: 100%;
+    box-sizing: border-box;
+    height: 60px; /* Altura definida para evitar que se superponga */
+}
+
+/* LOGO */
 .logo {
-    display: inline-block;
-    height: 75px;
-    position: absolute;
-    left: 90%;
-    bottom: -25%;
+    height: 50px;
 }
 
 .logo img {
     height: 100%;
+    max-width: 100%;
 }
 
+/* MENÚ */
+.menu {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+/* BOTONES DEL MENÚ */
 .menu_buttons {
-    margin-left: 80px;
-    margin-top: 0;
+    display: flex;
+    align-items: center;
+    gap: 20px;
 }
 
+.menu_buttons a {
+    padding: 10px 15px;
+    text-decoration: none;
+    color: rgb(200, 200, 200);
+    font-size: 16px;
+    transition: background 0.3s ease;
+}
+
+.menu_buttons a:hover {
+    background-color: rgb(200, 200, 200);
+    color: rgb(0, 0, 0);
+    opacity: 85%;
+}
+
+/* ESTILO GENERAL DE ENLACES */
 .cabecera a {
     cursor: pointer;
     text-decoration: none;
     color: rgb(200, 200, 200);
 }
 
-.cabecera a:hover {
-    background-color: rgb(200, 200, 200);
-    color: rgb(0, 0, 0);
-    opacity: 85%;
+/* MENÚ RESPONSIVE */
+.mobile_menu {
+    display: none;
+    color: rgb(255, 255, 255);
+    font-size: 30px;
+    cursor: pointer;
 }
 
-.cabecera a {
-    padding-inline: 30px;
-    padding-block: 20px;
-    display: inline-block;
-}
-
+/* DROPDOWN */
 .dropdown {
+    position: relative;
     display: inline-block;
 }
 
@@ -69,6 +81,7 @@ body {
     position: absolute;
     z-index: 2;
     background-color: rgba(130, 130, 130, 0.78);
+    width: 200px;
 }
 
 .dropdown:hover .dropdown_content {
@@ -79,8 +92,10 @@ body {
     display: block;
     color: rgb(200, 200, 200);
     text-decoration: none;
+    padding: 10px;
 }
 
+/* ICONOS EN EL MENÚ */
 .cabecera i {
     display: inline;
     padding-left: 10px;
@@ -89,17 +104,36 @@ body {
     top: 5px;
 }
 
+/* MEDIA QUERY PARA PANTALLAS PEQUEÑAS */
 @media screen and (max-width: 1023px) {
+    .cabecera {
+        flex-direction: column;
+        height: auto;
+        padding: 10px;
+    }
+
+    .menu {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        position: relative;
+        top: 0;
+        left: 0;
+        background-color: rgb(24, 24, 24);
+        padding: 10px 0;
+        display: flex;
+    }
+
+    .menu_buttons {
+        flex-direction: column;
+        gap: 10px;
+    }
+
     .mobile_menu {
         display: block;
-        color: rgb(255, 255, 255);
     }
 
-    .mobile_menu .material-icons {
-        font-size: 35px;
-    }
-
-    .mobile_hidden {
-        display: none;
+    .menu.show {
+        display: flex;
     }
 }
