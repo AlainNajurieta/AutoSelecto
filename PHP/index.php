@@ -14,7 +14,7 @@ if (isset($_GET['page'])) {
     } elseif ($page === 'contenido_general.php') {
         include 'contenido_general.php';
     } elseif ($page === 'catalogo.php') {
-        include ' catalogo.php';
+        include 'error404.php';
     } elseif ($page === 'noticias.php') {
         include 'noticias.php';
     } elseif ($page === 'coches.php') {
