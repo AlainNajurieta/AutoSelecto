@@ -1,0 +1,107 @@
+/* Reset básico para evitar estilos por defecto */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Fondo de la página */
+html, body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: auto; /* Permite scroll si el contenido es largo */
+    padding: 20px;
+}
+
+/* Contenedor del formulario */
+.form-container {
+    background-color: #fff;
+    padding: 30px;
+    width: 100%;
+    max-width: 450px; /* Para que no sea tan ancho */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    text-align: center;
+}
+
+/* Título */
+.form-container h2 {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+/* Subtítulo */
+.form-container p {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+/* Campos del formulario */
+label {
+    font-size: 16px;
+    font-weight: bold;
+    display: block;
+    text-align: left;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+input, select {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #dddddd;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+/* Botón */
+.btn {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 12px;
+    width: 100%;
+    font-size: 18px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #218838;
+}
+
+/* Mensajes de error */
+span {
+    color: red;
+    font-size: 14px;
+    text-align: left;
+    margin-top: -10px;
+    margin-bottom: 10px;
+}
+
+/* Enlace de volver */
+.back-link {
+    display: block;
+    margin-top: 15px;
+    font-size: 16px;
+    color: blue;
+    text-decoration: none;
+}
+
+.back-link:hover {
+    text-decoration: underline;
+}
+
+/* Hacerlo responsivo */
+@media (max-width: 600px) {
+    .form-container {
+        padding: 20px;
+    }
+}

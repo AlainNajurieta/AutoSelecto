@@ -8,6 +8,7 @@ function validar($dato, $tipo) {
     $dato = sanearDato($dato);
     if ($tipo === "texto") {
         if (empty($dato)) return "Este campo es obligatorio.";
+        if (is_numeric($dato)) return "Los números no son válidos.";
     } elseif ($tipo === "fecha") {
         if (empty($dato)) return "Este campo es obligatorio.";
         if (!is_numeric($dato) || $dato < 3 || $dato > 120) return "La edad no es válida.";
@@ -25,8 +26,24 @@ function validar($dato, $tipo) {
         }else{
             return "El número de teléfono no es válido";
         }
-    }
-    else {
+    } elseif ($tipo === "precio") {
+        if (empty($dato)) return "Este campo es obligatorio.";
+        if (!is_numeric($dato) || $dato < 0) return "El precio debe ser un número positivo.";
+    } elseif ($tipo === "kilometros") {
+        if (empty($dato)) return "Este campo es obligatorio.";
+        if (!is_numeric($dato) || $dato < 0) return "Los kilómetros deben ser un número positivo.";
+    } elseif ($tipo === "matricula") {
+        if (empty($dato)) return "Este campo es obligatorio.";
+        if (!preg_match('/^[A-Z0-9-]{5,10}$/', $dato)) return "La matrícula no es válida.";
+    } elseif ($tipo === "bastidor") {
+        if (empty($dato)) return "Este campo es obligatorio.";
+        if (strlen($dato) !== 17) return "El número de bastidor debe tener 17 caracteres.";
+    } elseif ($tipo === "anioVehiculo") {
+        if (empty($dato)) return "Este campo es obligatorio.";
+        $anioActual = date("Y");
+        if (!is_numeric($dato) || $dato < 1900 || $dato > $anioActual) 
+            return "El año debe estar entre 1900 y $anioActual.";
+    } else {
         exit();
     }
 } 

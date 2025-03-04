@@ -7,7 +7,7 @@
 ?>
 <div class="container">
     <h2>Panel Administrativo - Gestión de Coches</h2>
-    <a href="index.php?page=anadir" class="add-car">Agregar Nuevo Coche</a>
+    <a href="index.php?page=nuevo_vehiculo.php" class="add-car">Agregar Nuevo Coche</a>
     
     <table class="car-table" border=1>
         <tr>
