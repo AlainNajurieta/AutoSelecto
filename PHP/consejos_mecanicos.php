@@ -193,25 +193,6 @@
                 puede conllevar la inmovilización del vehículo, sanción administrativa y no poder realizar la ITV. Un
                 buen consejo sería revisar la caducidad del mismo para no llevarnos sorpresas.</p>
         </div>
-        <div class="vertical">
-            <div class="borde">
-                <div class="vertical1">
-                </div>
-            </div>
-            <div class="borde">
-                <div class="mapfre">
-                </div>
-            </div>
-            <div class="borde">
-                <div class="vertical2">
-                </div>
-            </div>
-            <div class="borde">
-                <div class="seguro">
-                </div>
-            </div>
-
-        </div>
     </div>
 <?php
     include "pie.php";
