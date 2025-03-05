@@ -31,7 +31,7 @@
     </a>
 
     
-    <a href="index.php?page=catalogo.php">
+    <a href="index.php?page=coches.php">
         <div class="card card-preguntas">                 
             <div class="descripcion-card">
                 <p>

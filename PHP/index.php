@@ -216,16 +216,7 @@ if (isset($_GET['page'])) {
     $errores_filtrados = array_filter($errores); // Filtra los valores vacíos
     // Si no hay errores, proceder con el procesamiento (por ejemplo, guardar los datos)
     if (empty($errores_filtrados)) {
-        $sql = "INSERT INTO Coches (Matricula, Año, Marca, Color, Precio, Kilometros, numero_bastidor, imagen, tipoVehiculo, id_Cliente) 
-        VALUES ('$matricula', '$ano_fabricacion', '$marca_vehiculo', '$color_vehiculo', $precio_vehiculo, $km_vehiculo, '$numero_chasis', '$imagen_vehiculo', '$tipo_vehiculo', 1)";
-
-        $resul = mysqli_query($conexion, $sql);
-
-        if (!$resul) {
-            $error = "Error en consulta - " . mysqli_error($conexion);
-            include "error.php";
-            exit();
-        }
+        insertarCoche($conexion, $matricula, $ano_fabricacion, $marca_vehiculo, $color_vehiculo, $precio_vehiculo, $km_vehiculo, $numero_chasis, $imagen_vehiculo, $tipo_vehiculo);
         include "administrar.php";
     } else {
         include "nuevo_vehiculo.php";

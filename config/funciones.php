@@ -131,4 +131,20 @@ function EliminarCoche($conexion,$id) {
     }
     return $resul;
 }
+
+function insertarCoche($conexion, $matricula, $ano_fabricacion, $marca_vehiculo, $color_vehiculo, $precio_vehiculo, $km_vehiculo, $numero_chasis, $imagen_vehiculo, $tipo_vehiculo, $id_cliente = 1) {
+    $sql = "insert into coches (matricula, año, marca, color, precio, kilometros, numero_bastidor, imagen, tipovehiculo, id_cliente) 
+            values ('$matricula', '$ano_fabricacion', '$marca_vehiculo', '$color_vehiculo', $precio_vehiculo, $km_vehiculo, '$numero_chasis', '$imagen_vehiculo', '$tipo_vehiculo', $id_cliente)";
+
+    $resul = mysqli_query($conexion, $sql);
+
+    if (!$resul) {
+        $error = "Error en consulta - " . mysqli_error($conexion);
+        include "error.php";
+        exit();
+    }
+
+    return $resul;
+}
+
 ?>
