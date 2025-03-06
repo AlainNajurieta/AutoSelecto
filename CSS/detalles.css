@@ -77,25 +77,6 @@ body {
     margin-top: 10px;
 }
 
-/* Media Queries para dispositivos móviles */
-@media screen and (max-width: 768px) {
-    .detalles-container {
-        width: 95%;
-    }
-
-    .detalles-info {
-        width: 100%;
-    }
-
-    .detalles-imagen {
-        max-width: 100%;
-        margin-top: 15px;
-    }
-
-    .detalles-link {
-        width: auto;
-    }
-}
 .comprar-boton {
     display: inline-block;
     text-decoration: none;
@@ -117,12 +98,32 @@ body {
 .mensaje-compra {
     color: white;
     font-weight: bold;
-    background-color: #5cb85c; /* Verde más claro */
+    background-color: #5cb85c; 
     padding: 15px;
     border-radius: 8px;
     text-align: center;
-    width: 80%; /* Ocupa más espacio */
+    width: 80%; 
     margin: 15px auto;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Media Queries para dispositivos móviles */
+@media screen and (max-width: 768px) {
+    .detalles-container {
+        width: 95%;
+    }
+
+    .detalles-info {
+        width: 100%;
+    }
+
+    .detalles-imagen {
+        max-width: 100%;
+        margin-top: 15px;
+    }
+
+    .detalles-link {
+        width: auto;
+    }
 }

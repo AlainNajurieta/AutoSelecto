@@ -13,7 +13,7 @@ html, body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    overflow: auto; /* Permite scroll si el contenido es largo */
+    overflow: auto; 
     padding: 20px;
 }
 
@@ -22,7 +22,7 @@ html, body {
     background-color: #fff;
     padding: 30px;
     width: 100%;
-    max-width: 450px; /* Para que no sea tan ancho */
+    max-width: 450px; 
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
     text-align: center;

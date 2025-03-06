@@ -4,10 +4,11 @@ require_once "../config/database.php";
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
-
+// eliminar
 if(isset($_GET['eliminar'])){
     EliminarCoche($conexion,$_GET['eliminar']);
 }
+// redirección de páginas
 if (isset($_GET['page'])) {
     $page = $_GET['page'] ?? '';
     if ($page === 'principal.php') {
@@ -33,6 +34,7 @@ if (isset($_GET['page'])) {
     } else {
         include 'error404.php';
     }
+    // inicio de sesión
 } else if(isset(($_POST["enviar"]))) {
     $errores = [];
 
@@ -81,6 +83,7 @@ if (isset($_GET['page'])) {
     
     // Si hay errores, mostrar inicioSesion.php, si no, continuar a principal.php
     
+    // registrarse
 } elseif(isset($_POST['registrar'])){
     $errores = [];
 
@@ -115,6 +118,7 @@ if (isset($_GET['page'])) {
     }else{
         include "registro.php";
     }
+    // detalles de vehículos
 } elseif(isset($_GET['detalles'])){
     
     $detallescoches = obtenerDetallesCoche($conexion, $_GET['detalles']);
@@ -130,7 +134,7 @@ if (isset($_GET['page'])) {
         include "editar.php";
     }
     
-    
+    // formulario de contacto
 } else if(isset($_POST['contacto'])) {
     $errores = [];
     if(!empty($_POST['tratamiento'])){
@@ -170,6 +174,7 @@ if (isset($_GET['page'])) {
     }else{
         include "contacto.php";
     }
+    // editar el precio de un vehículo
 } elseif (isset($_POST['modificar_precio'])) {
     $errores = [];
 
@@ -187,6 +192,7 @@ if (isset($_GET['page'])) {
 
     include "editar.php";
     
+    // agregar vehículos
 } elseif (isset($_POST['agregar_vehiculo'])) {
     $errores = [];
 
@@ -221,7 +227,7 @@ if (isset($_GET['page'])) {
     } else {
         include "nuevo_vehiculo.php";
     }
-    
+    // comprar vehículos
 } else if(isset($_GET['comprar'])) {
     $detallescoches = obtenerDetallesCoche($conexion, $_GET['comprar']);
     include "comprar.php";

@@ -33,15 +33,15 @@ h2 {
 p {
     font-size: 18px;
     color: #555;
-    margin-bottom: 5px; /* Reducido el margen */
+    margin-bottom: 5px;
 }
 
 form {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 8px; /* Ajustado el espacio entre elementos */
-    margin-bottom: 5px; /* Reducido el margen */
+    gap: 8px; 
+    margin-bottom: 5px; 
 }
 
 input[type="number"] {
@@ -69,7 +69,7 @@ input[type="submit"]:hover {
 /* Enlace centrado */
 a {
     display: block;
-    margin-top: 5px; /* Reducido el margen */
+    margin-top: 5px; 
     color: #007bff;
     text-decoration: none;
     font-weight: bold;
