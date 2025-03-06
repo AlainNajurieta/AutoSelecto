@@ -222,7 +222,11 @@ if (isset($_GET['page'])) {
         include "nuevo_vehiculo.php";
     }
     
-} else {
+} else if(isset($_GET['comprar'])) {
+    $detallescoches = obtenerDetallesCoche($conexion, $_GET['comprar']);
+    include "comprar.php";
+}
+    else {
     include "inicio.php";
 }
 
