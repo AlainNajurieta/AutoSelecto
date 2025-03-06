@@ -96,3 +96,33 @@ body {
         width: auto;
     }
 }
+.comprar-boton {
+    display: inline-block;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    padding: 10px 56px;
+    border-radius: 5px;
+    background: #28a745;
+    border: none;
+    text-align: center;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.comprar-boton:hover {
+    background: #218838;
+}
+
+.mensaje-compra {
+    color: white;
+    font-weight: bold;
+    background-color: #5cb85c; /* Verde más claro */
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+    width: 80%; /* Ocupa más espacio */
+    margin: 15px auto;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 0.5s ease-in-out;
+}
